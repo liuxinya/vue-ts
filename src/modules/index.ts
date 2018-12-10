@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import   * as WithRender from './index.html?style=./index.less';
+import { UDynamicService } from '../services/dynamic';
+import { Ioc } from '../decorators/injectable';
 @WithRender
 @Component({
   components: {
@@ -12,6 +14,6 @@ export class  MainComponent extends Vue {
     super();
   }
   created() {
-    
+    let dy: UDynamicService = Ioc(UDynamicService);
   }
 }

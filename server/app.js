@@ -4,7 +4,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
-const menu = require('./routes/menu');
+// const menu = require('./routes/menu');
 
 const app = express();
 
@@ -29,22 +29,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/menus', menu);
-app.use('/cube', require('./routes/cube'));
-// 数据库 数据源 表 字段
-app.use('/', require('./routes/data'));
-// 主题相关
-app.use('/subject', require('./routes/subject'));
-// 参数管理
-app.use('/dim', require('./routes/dim'));
-// sql相关
-app.use('/sql', require('./routes/sql'));
-// 任务相关
-app.use('/task', require('./routes/task'));
-// sql编辑 获取树的 表 字段
-app.use('/subjectTable', require('./routes/subjectTable'));
-// 迁移
-app.use('/', require('./routes/mizar'));
+// app.use('/menus', menu);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     let err = new Error('Not Found');
