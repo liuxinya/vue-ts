@@ -1,0 +1,53 @@
+<div class="date-pick">
+    <div class="date-pick-wrapper">
+        <div class="date-pick-input-container">
+            <input :disabled='option.disabled' ref='date-pick-input' :class='{disabled: option.disabled}' @click.prevent.stop='action.clickInput(selResult)' class='date-pick-input' type="text" :placeholder='"请选择"' v-model='selResult'>
+            <i v-if='!selResult' @click.prevent.stop='action.clickIcon($event)' class='date-pick-icon fa fa-calendar'></i>
+            <i v-if='selResult' @click.prevent.stop='action.clickIconCircle($event)' class='date-pick-icon fa fa-times-circle'></i>
+        </div>
+        <transition name='date-pick-slider'>
+            <div @click.prevent.stop='' v-if='isShowPanel' class="date-pick-sel-panel">
+                <div class="date-pick-panel-header">
+                    <div @click.prevent.stop='action.preYear()' class="arrow preYear"><i class='fa fa-angle-double-left'></i></div>
+                    <div @click.prevent.stop='action.preMonth()' v-if='helper.isShowMonthArrow()' class="arrow preMonth"><i class="fa fa-angle-left"></i></div>
+                    <div class="curr-show">
+                        <span @click.prevent.stop='action.showYearPanel' class='curr-show-year'>{{model.selYear}}年</span>
+                        <span @click.prevent.stop='action.showMonthPanel' v-if='helper.isShowMonthArrow()' class='curr-show-month'>{{model.selMonth}}月</span>
+                    </div>
+                    <div @click.prevent.stop='action.nextYear()' class="arrow nextYear"><i class="fa fa-angle-double-right"></i></div>
+                    <div @click.prevent.stop='action.nextMonth()' v-if='helper.isShowMonthArrow()' class="arrow nextMonth"><i class="fa fa-angle-right"></i></div>
+                </div>
+                <div class="date-picker-cells">
+                    <div class="date-picker-cells-header">
+                        <!-- 周 信息面板header -->
+                        <span v-for='item in model.weeks'>{{item}}</span>
+                    </div>
+                    <!-- 月 信息面板 -->
+                    <div class="date-picker-cells-body">
+                        <span v-for='(item, index) in model.selMonthDateData' 
+                              @click.prevent.stop='action.selDate(item, index)'
+                              :style='{color: item.style}' 
+                              :class="{'curr-day': item.isCurrDay, 
+                                       'curr-month': item.isCurrMonth,
+                                       'selected': index == helper.isHighLight()}">
+                            <i>{{item.value}}</i>
+                        </span>
+                    </div>
+                </div>
+                <!-- 10年 信息面板 -->
+                <div v-if='isShowYearPanel' class="date-pick-cells-year">
+                    <span @click.prevent.stop='action.selYear(item)' :class='{selected: item == model.selYear}' v-for='(item, index) in model.tenYearsData'>{{item}}</span>
+                </div>
+                <!-- 十二月份 信息面板 -->
+                <div v-if='isShowMonthPanel' class="date-pick-cells-month">
+                    <span @click.prevent.stop='action.selMonth(item)' :class='{selected: item == model.selMonth}' v-for='item in model.months'>{{item}}</span>
+                </div>
+                <div v-if='option.today' class="extend-panel">
+                    <ul class='extend-panel-list'>
+                        <li @click='action.extendPanelClick(item)' v-for='item in model.extendPanelList'>{{item}}</li>
+                    </ul>
+                </div>
+            </div>
+        </transition>
+    </div>
+</div>

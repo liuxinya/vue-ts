@@ -1,0 +1,63 @@
+<div class='date-picker-wrapper'>
+    <div class='date-picker-input-wrapper'>
+        <u-input :iconRight="icon" @click-right-icon="clickRightIcon($event)" @click="clickInputHandler($event)" v-model="selectedDateStr"></u-input>
+    </div>
+    <transition name='date-pick-slider'>
+        <div class='date-picker-panel-wrapper' v-show="showPanel" @click="clickPanel($event)">
+            <div class="panel-top-operation-wrapper">
+                <div class="left-operators panel-operators">
+                    <div class='item' @click="lastYear($event)">
+                        <i class='fa item-content fa-angle-double-left'></i>
+                    </div>
+                    <div class='item' @click="lastMonth($event)">
+                        <i class='fa item-content fa-angle-left'></i>
+                    </div>
+                </div>
+                <div class="mid-operators panel-operators">
+                    <div class='year item'>
+                        <span class='item-content' @click="clickYear($event)">
+                            {{year}}年
+                        </span>
+                        <div v-show="showYears" ref='years' class="option-wrapper">
+                            <div class='option' @click="chooseYear(value, $event)" v-for="value in yearOptions" :class="{
+                                'active': value === year
+                            }">{{value}}</div>
+                        </div>
+                    </div>
+                    <div class='month item' @click="clickMonth($event)">
+                        <div class="item-content">
+                            {{month}}月
+                        </div>
+                        <div v-show="showMonths" ref='months' class="option-wrapper">
+                            <div class='option' @click="chooseMonth(value, $event)" v-for="value in monthOptions" :class="{
+                                    'active': value === month
+                                }">{{value}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-operators panel-operators">
+                    <div class='item' @click="nextMonth($event)">
+                        <i class='fa item-content fa-angle-right'></i>
+                    </div>
+                    <div class='item' @click="nextYear($event)">
+                        <i class='fa item-content fa-angle-double-right'></i>
+                    </div>
+                </div>
+            </div>
+            <div class='date-picker-row'>
+                <div v-for="week in weeks" class="item">
+                    {{week}}
+                </div>
+            </div>
+            <div class='date-picker-row' v-for="row in monthdata">
+                <div class='item' :class='{
+                            "this-month": item.isThisMonth,
+                            "active": item.active,
+                            "today": item.isToday
+                        }' v-for="item in row" @click="chooseItem($event, item)">
+                    {{item.day}}
+                </div>
+            </div>
+        </div>
+    </transition>
+</div>

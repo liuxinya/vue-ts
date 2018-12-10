@@ -1,0 +1,21 @@
+<div class='tab-wrapper'>
+    <div class='left-operators operators-wrapper'>
+        <slot name='left-operators'>
+
+        </slot>
+    </div>
+    <div ref='ipt' v-inited="{item: item, index: index}" @dblclick='dblclick(item, index, $event)'  @click="clickTab(item,index,$event)" class='item item-common' :key="item.key" :class="{'active': activeGetter(item)}"
+        v-for="(item, index) in tabs">
+        <input v-if='item.showIpt' class='ipt' type="text" @blur='blur(item)' v-model='item.title'/>
+        <span v-if='!item.showIpt'>{{item.title}}</span>
+        <img @click="close(item,index,$event)" class="close" src="../../assets//close.png">
+    </div>
+    <div class='item-self item-common'>
+        <slot></slot>
+    </div>
+    <div class='right-operators operators-wrapper'>
+        <slot name="right-operators">
+
+        </slot>
+    </div>
+</div>

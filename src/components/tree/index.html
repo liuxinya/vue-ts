@@ -1,0 +1,73 @@
+<div>
+    <div v-slide-count="item" class='tree-wrapper' :key="item.key" v-for="(item, index) in data">
+        <div :draggable="item.dragable"
+             v-dragable="{
+                 item: item,
+                 index: index,
+                 action: action,
+                 model: model,
+                 allowDrop: allowDrop,
+                 draggedservice: draggedservice,
+                }" 
+             :class="{
+                 active: shouldActive && item.active,
+                 selected: selectable && item.selected
+              }"
+             v-tip='isTip && item.title'
+             v-inited="item" 
+             class='tree-content' :style="model.style"
+             @contextmenu="action.contextmenuHandler($event, item, index)"
+             @click="action.clickMenu(item, index, $event)"
+             >
+            <img class='menu-arrow'
+                :class="{
+                    open: item.open,
+                    hidden: !showMenuArrow || !item.children || (hiddenOnEmptyChildren && item.children.length <= 0)
+                }" src="../../assets//menu-arrow.png">
+            <img class='img' :src="model.getImgSrc(item, index)">
+            <span>
+                    {{item.title}}
+            </span>
+            <img v-if="showRightArrow && item.children" :class="{open: item.open}" class='right-arrow' src="../../assets/up.png">
+            <div class="self-components" v-if="item.showcomponents && item.components">
+                <div
+                class="self-component"
+                :component-data="component.data" 
+                @component-inited="action.componentInited($event, component, _index)"
+                v-component="component.component"
+                v-for="(component, _index) in item.components"
+                >
+
+                </div>
+            </div>
+            <div class="item" v-if="async">
+                <u-loading v-show="item.loading" :clickClose="false" bg="black" :opacity=".6" :fixed="false"></u-loading>
+            </div>
+        </div>
+        <section class="section-wrapper" :style="model.getSectionStyle(item)">
+                <tree 
+                    @dragstart="action.dragstart($event)"
+                    @dragend="action.dragend($event)"
+                    @drop="action.drop($event)"
+                    @contextmenu="action.onContextMenu($event)"
+                    :shouldActive="shouldActive"
+                    :selectable="selectable"
+                    :dragable="dragable"
+                    :id="item.id"
+                    :isTip='isTip'
+                    :root="_root" 
+                    :showMenuArrow="showMenuArrow" 
+                    :showRightArrow="showRightArrow" 
+                    :async="async" 
+                    @click="action.clickTreeHandler($event)" 
+                    @child-count="action.onChildCount(item, index, $event)" 
+                    :level="level + 1" 
+                    :parent="item"
+                    :mymodel="model"
+                    v-if="!helper.isLeaf(item)"
+                    :allowDrop="allowDrop"
+                    :hidden-on-empty-children="hiddenOnEmptyChildren"
+                    :data="item.children"></tree>
+        </section>
+    </div>
+</div>

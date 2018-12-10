@@ -1,0 +1,28 @@
+.switch {
+    display: inline-block;
+    .ball-wrapper {
+        width: 48px;
+        height: 24px;
+        background-color: #C5C5C5;
+        border-radius: 24px;
+        position: relative;
+        .ball {
+            display: inline-block;
+            vertical-align: middle;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            transition: all 0.4;
+        }
+        &.active {
+            background-color: #2781EE;
+            .ball {
+                left: 26px;
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.broad-crumbs {
+    user-select: none;
+    .broad-crumb {
+        display: inline-block;
+        vertical-align: middle;
+        .spliter {
+            opacity: .6;
+            margin: 0 4px;
+        }
+        .item {
+            transition: all .2s ease-in-out;
+            opacity: .6;
+            cursor: pointer;
+            &.active {
+                opacity: 1;
+            }
+        }
+    }
+}

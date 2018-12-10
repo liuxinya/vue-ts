@@ -1,0 +1,47 @@
+.bread-content-wrapper {
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    top: 0;
+    bottom: 0;
+    .crumbs-wrapper {
+        position: absolute;
+        width: 100%;
+        z-index: 2;
+        .broad-crumbs {
+            height: 30px;
+            border-bottom: 1px solid #ffffff7e;
+            line-height: 30px;
+        }
+    }
+    .subject-content-wrapper {
+        position: relative;
+        height: 100%;
+        .container {
+            height: 100%;
+            overflow: auto;
+        }
+        .main-content {
+            height: 100%;
+            padding-top: 31px;
+            box-sizing: border-box;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            .container {
+                position: relative;
+                z-index: 2;
+            }
+        }
+        .rotate-enter-active, .rotate-leave-active {
+            transition: all .2s ease-in-out;
+        }
+        .rotate-enter, .rotate-leave-to/* .fade-leave-active below version 2.1.8 */
+        {
+            transform: rotateY(45deg);
+            opacity: 0;
+        }
+    }
+}

@@ -1,0 +1,75 @@
+.wrapper {
+    font-size: 12px;
+    list-style: none;
+    padding: 0;
+    .next, .pre {
+        // border: 1px solid #d9d9d9;
+        outline: 0;
+        font-family: Arial;
+        cursor: pointer;
+        border-radius: 4px;
+        list-style: none;
+        min-width: 28px;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        transition: all .3s;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 8px;
+        transition: all .2s ease-out;
+        user-select: none;
+
+    }
+    .item {
+        cursor: pointer;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        min-width: 28px;
+        text-align: center;
+        list-style: none;
+        font-family: Arial;
+        outline: 0;
+        display: inline-block;
+        vertical-align: middle;
+        height: 28px;
+        line-height: 28px;
+        margin-right: 8px;
+        transition: all .2s ease-out;
+    }
+    &.black {
+        .next, .pre {
+            background-color: #1e242c;
+            color: white;
+        }
+        .item {
+            background-color: #1e242c;
+            color: white;
+            &.active {
+                color: white;
+                background-color: #236BC6;
+                border-collapse: #236BC6;
+            }
+        }
+    }
+    &.normal {
+        .next, .pre {
+            background-color: #ffffff;
+            border: 1px solid #d9d9d9;
+            color: grey;
+        }
+        .item {
+            background-color: #ffffff;
+            color: grey;
+            border: 1px solid #d9d9d9;
+            &.active {
+                color: white;
+                background-color: #236BC6;
+                border-collapse: #236BC6;
+            }
+        }
+    }
+}

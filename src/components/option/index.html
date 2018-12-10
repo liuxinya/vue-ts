@@ -1,0 +1,8 @@
+<transition v-on:after-leave="afterLeave" name="fade">
+    <div ref='option' v-show="show" class='option-wrapper' :style="{left: left, top: corrTop? corrTop: top}">
+        <div v-show="!item.hidden" @click="clickItem($event,item, index)" class='option-item' :key='index' v-for="(item, index) in data">
+            <i v-show="showIcon" class='option-icon fa' :class="[item.icon || 'fa-cube']"></i>
+            {{item.title}}
+        </div>
+    </div>
+</transition>

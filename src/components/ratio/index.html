@@ -1,0 +1,12 @@
+<div class='ratio-wrapper'>
+    <input ref="input" type="radio" 
+           :name="name" 
+           :checked="checked"
+           @change="changeHandler" 
+    />
+    <label @click="clickLabel($event)">
+        <slot>
+            {{title}}
+        </slot>
+    </label>
+</div>

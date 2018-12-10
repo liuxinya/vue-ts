@@ -1,0 +1,9 @@
+{
+  "globalDevDependencies": {
+    "reflect-metadata": "registry:dt/reflect-metadata#0.0.0+20161005184000"
+  },
+  "globalDependencies": {
+    "moment": "registry:dt/moment#2.11.1+20161010105546",
+    "tinycolor2": "registry:dt/tinycolor2#1.1.1+20161117213728"
+  }
+}

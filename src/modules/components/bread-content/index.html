@@ -1,0 +1,12 @@
+<div class="bread-content-wrapper">
+    <div class="crumbs-wrapper">
+        <u-broadcrumbs @contextmenu="action.crumbContextmenuHandler($event)" v-model="activeCrumbIndex" :data="crumbs"></u-broadcrumbs>
+    </div>
+    <div class="subject-content-wrapper">
+        <div class='main-content' v-for="(crumb, index) in crumbs" :key="crumb.key">
+            <transition name="rotate">
+                <u-component v-if="crumb.key >= 0" class='container' v-show="index=== activeCrumbIndex" :component="crumb.component" :data="crumb.data"></u-component>
+            </transition>
+        </div>
+    </div>
+</div>

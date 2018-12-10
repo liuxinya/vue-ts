@@ -1,0 +1,18 @@
+<modal 
+    class='confirm-wrapper'
+    :active="active"
+    :modalBackgroundColor="bg"
+    :modalOpacity="opacity"
+    @closed="closed($event)"
+>
+    <div slot="header" class='confirm-header-title' v-bg="theme">
+        {{title}}
+    </div>
+    <div slot="content" class='confirm-content'>
+        {{content}}
+    </div>
+    <div slot="footer" class='confirm-footer'>
+        <u-button v-if='showCancelBtn' bg="rgb(74, 74, 74)" @click="cancel">取消</u-button>
+        <u-button v-if='showConfirmBtn' :bg="theme" @click="confirm">确认</u-button>
+    </div>
+</modal>

@@ -1,0 +1,28 @@
+<div ref='ele' class='modal-wrapper'>
+    <transition v-on:after-leave="animateEnd" name='jump'>
+        <div v-if="show" class='modal-content-wrapper' :style="{'width': width, top: top, 'height': height}">
+            <div v-if="showHeader" class="modal-header" :style='{"padding": headerPadding, "fontSize": headerFontSize}'>
+                {{title}}
+                <slot name="header"></slot>
+            </div>
+            <div v-if="showBody"  class="modal-content" 
+            :class="{
+                'top-radius': !showHeader,
+                'bottom-radius': !showFooter,
+            }"
+            >
+                {{content}}
+                <slot name="content"></slot>
+            </div>
+            <div v-if="showFooter"  class="modal-footer">
+                <slot name="footer"></slot>
+            </div>
+        </div>
+    </transition>
+    <transition name="fade">
+        <div @click='clickModal($event)' :style="{
+            'background-color': modalBackgroundColor,
+            'opacity': modalOpacity,
+        }" v-if="show" class='modal'></div>
+    </transition>
+</div>

@@ -1,0 +1,116 @@
+@count-size: 24px;
+@inactive-color: #a7a7a7;
+@active-color: #207FF2;
+.u-steps {
+        display: block;
+        height: 62px;
+        .u-step {
+            display: inline-block;
+            position: relative;
+            transition: all .2s ease-out;
+            &.complete {
+                .wrapper {
+                    .content {
+                        .title-wrapper {
+                            .line {
+                                background-color: @active-color;
+                            }
+                        }
+                    }
+                }
+            }
+            &.active {
+                .wrapper {
+                    .count-wrapper {
+                        .step-count {
+                            background-color: @active-color;
+                            color: white;
+                        }
+                    }
+                    .content {
+                        .title-wrapper {
+                            .title {
+                                color: @active-color;
+                                .desc {
+
+                                }
+                            }
+                            .line {
+                                background-color: @active-color;
+                            }
+                        }
+                    }
+                }
+            }
+            .wrapper {
+                display: flex;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                .count-wrapper {
+                    width: @count-size;
+                    .step-count {
+                        width: @count-size;
+                        height: @count-size;
+                        border-radius: 50%;
+                        border: 1px solid @inactive-color;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        transition: all .2s ease-out;
+                    }
+                    .step-complete {
+                        width: @count-size;
+                        height: @count-size;
+                        border-radius: 50%;
+                        border: 1px solid @active-color;
+                        color: @active-color;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        transition: all .2s ease-out;
+                    }
+                }
+                .content {
+                    margin-left: 10px;
+                    position: relative;
+                    flex: 1;
+                    white-space: nowrap;
+                    .title-wrapper {
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        top: 0;
+                        right: 0;
+                        display: flex;
+                        .title {
+                            font-weight: 600;
+                            font-size: 14px;
+                            position: relative;
+                            transition: all .2s ease-out;
+                            color: @inactive-color;
+                            .desc {
+                                position: absolute;
+                                top: 24px;
+                                left: 0;
+                                font-size: 12px;
+                                font-weight: 300;
+                                transition: all .2s ease-out;
+                            }
+                        }
+                        .line {
+                            flex: 1;
+                            height: 1px;
+                            margin-right: @count-size * 2 + 16px;
+                            margin-left: 20px;
+                            background-color: grey;
+                            position: relative;
+                            top: 10px;
+                            transition: all .2s ease-out;
+                        }
+                    }
+                }
+            }
+        }
+    }

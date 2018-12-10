@@ -1,0 +1,11 @@
+<ul class="wrapper" :class="[theme]">
+    <li class="pre" @click="prePage()">
+        <
+    </li>
+    <li class="item" @click="clickPage(_page, i)" :class="{active: _page == page}" v-for="(_page,i) in pages">
+        {{_page}}
+    </li>
+    <li class="next" @click="nextPage()">
+        >
+    </li>
+</ul>

@@ -1,0 +1,16 @@
+<div class='checkbox-wrapper'>
+        <input ref="input" type="checkbox" 
+               :name="name"
+               @click="clicHandler($event)"
+               :checked="checked"
+               :disabled='disabled'
+        />
+        <label @click="clickLabel($event)">
+            <div class="checkbox-content">
+                <div class='img'></div>
+            </div>
+            <slot>
+                {{title}}
+            </slot>
+        </label>
+    </div>

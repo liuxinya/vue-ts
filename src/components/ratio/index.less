@@ -1,0 +1,36 @@
+.ratio-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+    input[type="radio"]+label {
+        cursor: pointer;
+        user-select: none;
+    }
+    input[type="radio"]+label::before {
+        content: "";
+        /*不换行空格*/
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 18px;
+        width: 8px;
+        height: 8px;
+        margin-right: 4px;
+        border-radius: 50%;
+        border: 1px solid #D4D5D9;
+        // text-indent: .15em;
+        padding: 2px;
+        transition: all .3s ease-in-out;
+        position: relative;
+        top: -1px;
+    }
+    
+    input[type="radio"]:checked+label::before {
+        border-color: #2d8cf0;
+        background-color: #2d8cf0;
+        background-clip: content-box;
+    }
+    
+    input[type="radio"] {
+        position: absolute;
+        clip: rect(0, 0, 0, 0);
+    }
+}

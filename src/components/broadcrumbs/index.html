@@ -1,0 +1,10 @@
+<div class='broad-crumbs'>
+    <div class='broad-crumb' v-init="crumb" :key="crumb.key" v-for="(crumb, index) in data">
+        <span v-if="index > 0" class='spliter'>
+                /
+        </span>
+        <span @contextmenu="contextmenu($event, crumb, index)" @click="clickCrumb(crumb, index)" class='item' :class="{active: index === activeIndex}">
+                {{crumb.title}}
+        </span>
+    </div>
+</div>

@@ -1,0 +1,157 @@
+@item-size: 24px;
+@active-color: rgb(73, 80, 96);
+@inactive-color: rgb(187, 190, 196);
+@active-bg: #3A91E7;
+@option-height: 24px;
+
+.date-picker-wrapper {
+    position: relative;
+    display: inline-block;
+    .date-picker-input-wrapper {
+        .date-picker-input {
+
+        }
+        .date-picker-icon {
+
+        }
+    }
+    .date-picker-panel-wrapper {
+        position: absolute;
+        min-width: 200px;
+        z-index: 1000;
+        background-color: white;
+        margin-top: 2px;
+        padding: 5px 2px;
+        box-shadow: 0 0px 4px @active-bg;
+        border-radius: 4px;
+        .panel-top-operation-wrapper {
+            color: @active-color;
+            position: relative;
+            height: 25px;
+            line-height: 20px;
+            border-bottom: 1px solid #ccc;
+            z-index: 1;
+            .panel-operators {
+                position: absolute;
+                display: inline-block;
+                .item {
+                    display: inline-block;
+                    vertical-align: middle;
+                    cursor: pointer;
+                    margin: 0 4px;
+                    transition: all .2s ease-in-out;
+                    font-size: 14px;
+                    position: relative;
+                    .item-content {
+                        &:hover {
+                            color: @active-bg;
+                        }
+                    }
+                    &.year .option-wrapper {
+                        right: 0;
+                    }
+                    &.month .option-wrapper {
+                        left: 0;
+                    }
+                    .option-wrapper {
+                        position: absolute;
+                        background-color: white;
+                        box-shadow: 0 0 4px @active-bg;
+                        z-index: 1000;
+                        top: 0;
+                        border-radius: 4px;
+                        height: @option-height * 8;
+                        overflow: auto;
+                        text-align: center;
+                        &::-webkit-scrollbar {
+                            /*滚动条整体样式*/
+                            width: 0px;
+                            /*高宽分别对应横竖滚动条的尺寸*/
+                        }
+                        .option {
+                            padding: 0 16px;
+                            height: @option-height;
+                            line-height: @option-height;
+                            &:first-child {
+                                border-top-left-radius: 4px;
+                                border-top-right-radius: 4px;
+                            }
+                            &:last-child {
+                                border-bottom-left-radius: 4px;
+                                border-bottom-right-radius: 4px;
+                            }
+                            &.active {
+                                background-color: @active-bg;
+                                color: white;
+                            }
+                        }
+                    }
+                }
+                &.mid-operators {
+                    left: 50%;
+                    transform: translateX(-50%);
+                    .item {
+                        font-size: 12px;
+                        margin: 0;
+                    }
+                }
+                &.left-operators {
+                    left: 4px;
+                }
+                &.right-operators {
+                    right: 4px;
+                }
+            }
+        }
+        .date-picker-row {
+            .item {
+                color: @inactive-color;
+                display: inline-block;
+                vertical-align: middle;
+                width: @item-size;
+                height: @item-size;
+                text-align: center;
+                line-height: @item-size;
+                margin: 2px;
+                transition: all .2s ease-in-out;
+                cursor: pointer;
+                border-radius: 4px;
+                position: relative;
+                &.this-month {
+                    color: @active-color;
+                }
+                &:hover {
+                    background-color: #E5EFFA;
+                }
+                &.active {
+                    background-color: @active-bg;
+                    color: white;
+                }
+                &.today {
+                    &::after {
+                        content: '';
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 1px;
+                        right: 1px;
+                        background-color: @active-bg;
+                    }
+                }
+            }
+        }
+    }
+}
+.date-pick-slider-enter-active, .date-pick-slider-leave-active {
+    transition: all .2s;
+}
+.date-pick-slider-enter, .date-pick-slider-leave-to {
+    opacity: 0;
+    transform: rotateX(-90deg);
+    transform-origin: center top;
+}
+.date-pick-slider-enter-to {
+    opacity: 1;
+    transform: rotateX(0deg);
+}

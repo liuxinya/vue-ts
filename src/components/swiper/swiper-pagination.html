@@ -1,0 +1,8 @@
+<div>
+    <div v-if="circles.length > 0" class="swiper-pagination">
+        <span v-for="($index, c) in circles" class="circle" :style="{
+                            'backgroundColor': activeIndex == $index ? pagerColor : pagerBgColor,
+                            'opacity': (pagerColor == pagerBgColor) ? (activeIndex == $index ? '1' : '0.4') : '1'
+                          }"></span>
+    </div>
+</div>

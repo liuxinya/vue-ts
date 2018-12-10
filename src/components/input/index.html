@@ -1,0 +1,23 @@
+<div class="u-input">
+    <div class='input-wrapper'>
+        <span v-if='icon' class='fa left' :class='icon'  @click="clickLeftIcon($event)"></span>
+        <input 
+            ref="input"
+            :style="{
+                paddingLeft: icon? '28px': '10px',
+                'border-color': borderColor,
+                'padding-right': iconRight ? '28px' : '10px'
+            }" 
+            :disabled='disabled'
+            v-model="myvalue"
+            :placeholder="placeholder" 
+            :maxlength='maxlength'
+            class='input'
+            @focus="onFocus($event)"
+            @blur="onBlur($event)"
+            @click="onClick($event)"
+            @keyup.enter="keyupHandler($event)"
+        >
+        <span v-if="iconRight" class='fa right' :class='iconRight' @click="clickRightIcon($event)"></span>
+    </div>
+</div>

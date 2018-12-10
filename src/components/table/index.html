@@ -1,0 +1,27 @@
+<table class='u-table-wrapper' :class="[theme]">
+    <thead>
+        <tr @click="checkAll($event)">
+            <th v-if="checkable" class='checkbox'>
+                <u-checkbox v-model="shouldcheckedall"></u-checkbox>
+            </th>
+            <th :key="header.key" v-for="header in headers">{{header.title}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr 
+            v-for="(item, index) in data"
+            :class='{active: item.active}'
+            @click="clickHandler($event, item, index)" 
+            @contextmenu="contextmenuHandler($event, item, index)">
+            <td v-if="checkable" class='checkbox'>
+                <u-checkbox v-model="item.checked"></u-checkbox>
+            </td>
+            <td
+                :key="header.key" 
+                v-for="header in headers">
+                <span v-if='isDate(header.key)'>{{item[header.key] | date}}</span>
+                <span v-else>{{item[header.key]}}</span>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,6 @@
+<transition v-on:after-leave="animateEnd" name="fade">
+    <div v-if="show" :style="style" class='loading-wrapper' @click="click()">
+        <img :style="imgStyle" class='img' :src="img">
+        <slot></slot>
+    </div>
+</transition>

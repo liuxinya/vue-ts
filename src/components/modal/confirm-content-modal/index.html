@@ -1,0 +1,27 @@
+<u-modal 
+    @closed="closed()" 
+    :active="show" 
+    :modalBackgroundColor="bg" 
+    :modalOpacity="opacity" 
+    class='choose-subject-wrapper' 
+    :top="top" 
+    :width="width"
+    :height='height'
+    :showHeader="showHeader"
+    :showBody="showBody"
+    :showFooter="showFooter"
+>   
+    <div slot="header" class="choose-subject-header" :style="headerStyle">
+        {{title}}
+    </div>
+    <div slot="content" class='choose-subject-content' :style="contentStyle">
+        <slot name="content"></slot>
+    </div>
+    <div slot="footer" class='choose-subject-footer' :style="footerStyle">
+        <slot name="footer"></slot>
+        <section v-if="showFooterOperator">
+            <u-button bg="rgb(74, 74, 74)" @click="cancel">取消</u-button>
+            <u-button :bg="theme" @click="confirm">确认</u-button>
+        </section>
+    </div>
+</u-modal>

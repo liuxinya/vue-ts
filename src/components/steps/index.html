@@ -1,0 +1,23 @@
+<div class="u-steps">
+    <div class='u-step' :class="{'active': active == i, 'complete': hasComplete(i)}"  v-for="(step, i) in data" :style="{'width': getWidth(i), 'margin-right': getMargin(i)}">
+        <div class="wrapper">
+            <div  @click='clickCurrStep(step, i)' class="count-wrapper">
+                <div v-if="!hasComplete(i)"  class="step-count">
+                     <span>{{i + 1}}</span>
+                </div>
+                <div v-if="hasComplete(i)"  class="step-complete">
+                    <span class="fa fa-check"></span>
+                </div>
+            </div>
+            <div class="content">
+                <div class="title-wrapper">
+                    <div @click='clickCurrStep(step, i)' class="title">
+                            {{step.title}}
+                            <div class="desc">{{step.desc}}</div>
+                    </div>
+                    <div class="line" v-if="i != data.length - 1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

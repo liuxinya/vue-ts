@@ -1,0 +1,50 @@
+
+@height: 20px;
+@width: 40px;
+@border-color:  #d8d8d8;
+.complex-table {
+    display: inline-block;
+    .complex-table-wrapper {
+        table {
+            border-collapse:collapse;
+            border-spacing: 0;
+            float: left;
+            border: none;
+            tr.property{
+                td {
+                    background-color: #f7f7f7;
+                    font-weight: 700;
+                }
+            }
+            th, td {
+                padding: 10px 20px;
+                border: 1px solid @border-color;
+                min-width: 30px;
+                font-size: 12px;
+                word-break: keep-all;
+                text-align: center;
+                background-color: #fff;
+                color: #232323;
+                &.property {
+                    background-color: #f7f7f7;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
+.clearfix:before,.clearfix:after {
+
+    content: "";
+
+    display: block;
+
+    clear: both;
+
+}
+
+.clearfix {
+
+    zoom: 1;
+
+}

@@ -1,0 +1,41 @@
+.loading-wrapper {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .img {
+        max-height: 30px;
+        max-width: 30px;
+    }
+    @keyframes spin {
+        from {
+            transform: scale(0);
+            opacity: 1;
+        }
+        to {
+            transform: scale(1.2);
+            opacity: 0;
+        }
+    }
+    @keyframes circle {
+        from {
+            transform: rotate(0);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}
+.fade-enter-active,
+.fade-leave-active {
+    transition: all .3s ease-in-out;
+}
+.fade-enter,
+.fade-leave-to/* .fade-leave-active below version 2.1.8 */
+    {
+    opacity: 0;
+}

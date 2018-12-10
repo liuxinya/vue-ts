@@ -1,0 +1,12 @@
+<div class="complex-table">
+    <div class="complex-table-wrapper clearfix">
+        <table class='complex-table-header'>
+            <tr v-if='!flag' v-for='row in tableData'>
+                <td :class="[item.type]" :rowspan="item.row? item.row: 1" :colspan="item.col? item.col: 1" v-for='item in row'>{{item.value}}</td>
+            </tr>
+            <tr :class='{property: index == 0}' v-if='flag' v-for='(row, index) in tableDataF'>
+                <td v-for='(item, index) in row'>{{item}}</td>
+            </tr>
+        </table>
+    </div> 
+</div>

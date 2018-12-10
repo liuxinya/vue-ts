@@ -1,0 +1,14 @@
+<div class="selector-wrapper selector">
+    <div :class='{active: isClick}' class="select-sel" @click.stop.prevent='clickSel($event)'>
+        <!-- <span class='sel-val' :class='{inactive: !activeItem}'>{{activeItem ? activeItem.title : '请选择'}}</span> -->
+        <input ref='input' @blur.stop.prevent='blueEvent($event)' readonly='readonly' class='sel-val' :class='{inactive: !activeItem, disabled: disabled}' type="text" :value="activeItem ? activeItem.title : placeholder">
+        <i @click.prevent='clickArrow' :class='{active: isClick}' class="select-arrow fa fa-angle-down"></i>
+    </div>
+    <transition name='slider-down'>
+        <div class="select-item-wrapper" v-if='isClick'>
+            <ul>
+                <li @mousedown.stop.prevent='select(item, index, $event)' :class='{active: item.active, disabled: item.noSelect}' class="select-item" v-for='(item, index) in data'>{{item.title}}</li>
+            </ul>
+        </div>
+    </transition>
+</div>

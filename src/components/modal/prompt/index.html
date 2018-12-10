@@ -1,0 +1,18 @@
+<modal 
+    class='alert-wrapper'
+    :active="active"
+    :modalBackgroundColor="bg"
+    :modalOpacity="opacity"
+    @closed="closed($event)"
+>
+    <div slot="header" class='alert-header' v-bg="theme">
+        {{title}}
+    </div>
+    <div slot="content" class='alert-content'>
+        <u-input :placeholder='placeholder' :focus="true" class='prompt-input' v-model="myvalue"></u-input>
+    </div>
+    <div slot="footer" class='alert-footer'>
+        <u-button bg="rgb(74, 74, 74)" @click="cancel">取消</u-button>
+        <u-button :bg="theme" @click="confirm">确认</u-button>
+    </div>
+</modal>

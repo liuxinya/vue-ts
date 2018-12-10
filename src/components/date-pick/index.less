@@ -1,0 +1,235 @@
+
+@default-color: #495060;
+@disable-color: #bbbec4;
+@high-light-color: #57a3f3;
+@hover-base-color: #e1f0fe;
+@selected-color: #2d8cf0;
+@h: 32px;
+@panel-h: 234px;
+@panen-w: 200px;
+.date-pick {
+    width: 100%;
+    color: @default-color;
+    .date-pick-wrapper {
+        width: 100%;
+        position: relative;
+        .date-pick-input-container {
+            position: relative;
+            width: @panen-w;
+            .date-pick-input {
+                display: inline-block;
+                width: 100%;
+                height: @h;
+                box-sizing: border-box;
+                line-height: 1.5;
+                padding: 4px 7px;
+                padding-right: 32px;
+                font-size: 12px;
+                border: 1px solid #dddee1;
+                border-radius: 4px;
+                color: @default-color;
+                background-color: #fff;
+                background-image: none;
+                position: relative;
+                cursor: text;
+                transition: border .2s ease-in-out,background .2s ease-in-out,box-shadow .2s ease-in-out;
+                &:hover {
+                    border-color: @high-light-color;
+                }
+                &.disabled {
+                    cursor: not-allowed;
+                }
+            }
+            .date-pick-icon {
+                position: absolute;
+                width: 32px;
+                height: @h;
+                line-height: @h;
+                text-align: center;
+                right: 0;
+                top: 0;
+                font-size: 16px;
+                opacity: .8;
+                transition: opacity .5s;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+        .date-pick-sel-panel {
+            height: @panel-h;
+            width: 200px;
+            margin: 5px 0;
+            padding: 5px 2px;
+            padding-top: 0;
+            background-color: #fff;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 999;
+            border-radius: 4px;
+            box-shadow: 0 1px 6px rgba(0,0,0,.2);
+            position: absolute;
+            .date-pick-panel-header {
+                height: @h;
+                vertical-align: middle;
+                padding: 0 8px;
+                box-sizing: border-box;
+                position: relative;
+                border-bottom: 1px solid #ccc;
+                .arrow {
+                    vertical-align: middle;
+                    height: @h;
+                    display: inline-block;
+                    line-height: @h;
+                    font-size: 18px;
+                    text-align: center;
+                    cursor: pointer;
+                    margin: 0 3px;
+                    &:hover i{
+                        color:@high-light-color;
+                    }
+                }
+                .arrow:nth-last-child(-n + 2) {
+                    float: right;
+                }
+                i {
+                    color: @default-color;
+                }
+                .curr-show {
+                    display: inline-block;
+                    color: @default-color;
+                    height: @h;
+                    line-height: @h;
+                    text-align: center;
+                    width: 40%;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    span {
+                        margin: 0 2px;
+                        cursor: pointer;
+                        &:hover {
+                            color:@high-light-color; 
+                        }
+                    }
+                }
+            }
+            .date-picker-cells {
+                .date-picker-cells-header, .date-picker-cells-body {
+                    span {
+                        // font-size: 0px;
+                        display: inline-block;
+                        width: 24px;
+                        height: 24px;
+                        line-height: 24px;
+                        text-align: center;
+                        margin: 2px;
+                        color: @disable-color;
+                        user-select: none;
+                        position: relative;
+                        i {
+                            font-style: normal;
+                            font-size: 12px;
+                        }
+                    }
+                }
+                .date-picker-cells-body {
+                    span {
+                        color: @default-color;
+                        cursor: pointer;
+                        border-radius: 3px;
+                        transition: all .2s ease-in-out;
+                    }
+                    span.curr-month:hover {
+                        background-color: @hover-base-color;
+                    }
+                    span.curr-day::after {
+                        content: '';
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 1px;
+                        right: 1px;
+                        background-color: @selected-color;
+                    }
+                    span.selected {
+                        background-color: @selected-color;
+                        color: #fff!important;
+                        font-weight: 500;
+                        &:hover {
+                            background-color:  @selected-color;
+                        }
+                        &::after {
+                            background-color: #fff;
+                        }
+                    }
+                }
+            }
+            .date-pick-cells-year, .date-pick-cells-month {
+                position: absolute;
+                top: @h;
+                left: 0;
+                background-color: #fff;
+                z-index: 1;
+                span {
+                    float: left;
+                    display: block;
+                    width: 40px;
+                    height: 26px;
+                    line-height: 26px;
+                    text-align: center;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    margin: 12px;
+                    &:hover {
+                        background-color: @hover-base-color;
+                    }
+                    &.selected {
+                        background-color: @selected-color;
+                        color: #fff!important;
+                    }
+                }
+            }
+            .date-pick-cells-year {
+                z-index: 2;
+            }
+            .extend-panel {
+                position: absolute;
+                right: 6px;
+                bottom: 8px;
+                ul.extend-panel-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    background: #e9eaec;
+                    border-right: 1px solid #e9eaec;
+                    border-left: 1px solid #e9eaec;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    li {
+                        padding: 5px;
+                        cursor: pointer;
+                        overflow: hidden;
+                        border-radius: 4px;
+                        &:hover {
+                            background: @hover-base-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.date-pick-slider-enter-active, .date-pick-slider-leave-active {
+    transition: all .2s;
+}
+.date-pick-slider-enter, .date-pick-slider-leave-to {
+    opacity: 0;
+    transform: rotateX(-90deg);
+    transform-origin: center top;
+}
+.date-pick-slider-enter-to {
+    opacity: 1;
+    transform: rotateX(0deg);
+}

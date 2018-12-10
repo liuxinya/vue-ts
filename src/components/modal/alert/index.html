@@ -1,0 +1,17 @@
+<modal 
+    class='alert-wrapper'
+    :active="active"
+    :modalBackgroundColor="bg"
+    :modalOpacity="opacity"
+    @closed="closed($event)"
+>
+    <div slot="header" class='alert-header' v-bg="theme">
+        {{title}}
+    </div>
+    <div slot="content" class='alert-content'>
+        {{content}}
+    </div>
+    <div slot="footer" class='alert-footer'>
+        <u-button :bg="theme" @click="close">关闭</u-button>
+    </div>
+</modal>

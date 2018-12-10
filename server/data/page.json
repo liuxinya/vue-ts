@@ -1,0 +1,112 @@
+[
+    {
+        "sourceName": "l0kzxouv6cq",
+        "sourceDesc": "ub1jmc4c",
+        "url": "172.123.31.1",
+        "userName": "we5n8",
+        "dbType": "mysql",
+        "id": "l0kzxouv6cq0",
+        "passWord": "***",
+        "dataSourceClass": "1brbzlsa",
+        "driverClass": "e7rylcb"
+    },
+    {
+        "sourceName": "vng6o5snpvh",
+        "sourceDesc": "poedkcp4g",
+        "url": "172.123.31.1",
+        "userName": "xkzxg",
+        "dbType": "hive",
+        "id": "vng6o5snpvh1",
+        "passWord": "***",
+        "dataSourceClass": "v8j5nqr",
+        "driverClass": "ventm24"
+    },
+    {
+        "sourceName": "ddqzu6fh8zr",
+        "sourceDesc": "ycl33143k",
+        "url": "172.123.31.1",
+        "userName": "rbkuu",
+        "dbType": "db2",
+        "id": "ddqzu6fh8zr2",
+        "passWord": "***",
+        "dataSourceClass": "7o8lwndw",
+        "driverClass": "nwn5i27o"
+    },
+    {
+        "sourceName": "n5gkq0ll5e",
+        "sourceDesc": "n9ebux0i",
+        "url": "172.123.31.1",
+        "userName": "84rac",
+        "dbType": "hive",
+        "id": "n5gkq0ll5e3",
+        "passWord": "***",
+        "dataSourceClass": "sba3xg",
+        "driverClass": "6zq1jev"
+    },
+    {
+        "sourceName": "xn4l9a65xtp",
+        "sourceDesc": "zl2b677a",
+        "url": "172.123.31.1",
+        "userName": "nj7j",
+        "dbType": "hive",
+        "id": "xn4l9a65xtp4",
+        "passWord": "***",
+        "dataSourceClass": "9ztyc5kn",
+        "driverClass": "71whyxa8"
+    },
+    {
+        "sourceName": "4kj70aum1ep",
+        "sourceDesc": "6esfvx4d",
+        "url": "172.123.31.1",
+        "userName": "qa8ca",
+        "dbType": "hive",
+        "id": "4kj70aum1ep5",
+        "passWord": "***",
+        "dataSourceClass": "ttkns6ya",
+        "driverClass": "xyvykmxq"
+    },
+    {
+        "sourceName": "0jewr9gae4kh",
+        "sourceDesc": "vhojiy2rt",
+        "url": "172.123.31.1",
+        "userName": "1v53j",
+        "dbType": "mysql",
+        "id": "0jewr9gae4kh6",
+        "passWord": "***",
+        "dataSourceClass": "fqi7p9n8",
+        "driverClass": "ytrwcjgd"
+    },
+    {
+        "sourceName": "90i3uw36dv",
+        "sourceDesc": "x5wzny1cf",
+        "url": "172.123.31.1",
+        "userName": "wo9zi",
+        "dbType": "db2",
+        "id": "90i3uw36dv7",
+        "passWord": "***",
+        "dataSourceClass": "2e9rmewq",
+        "driverClass": "ms6hlsq"
+    },
+    {
+        "sourceName": "00r6g88jxjbno",
+        "sourceDesc": "xdrxd9s46",
+        "url": "172.123.31.1",
+        "userName": "nellf",
+        "dbType": "mysql",
+        "id": "00r6g88jxjbno8",
+        "passWord": "***",
+        "dataSourceClass": "hv66xgif",
+        "driverClass": "rot4lve"
+    },
+    {
+        "sourceName": "9s5r2oygco",
+        "sourceDesc": "mxinf652t",
+        "url": "172.123.31.1",
+        "userName": "616e5",
+        "dbType": "db2",
+        "id": "9s5r2oygco9",
+        "passWord": "***",
+        "dataSourceClass": "7dki0ea",
+        "driverClass": "r5aqtj7"
+    }
+]

@@ -1,0 +1,10 @@
+<transition  v-on:after-leave="animateEnd" name="fade">
+    <div @mouseleave="mouseleaveHandler" @mouseenter="mouseenterHandler" v-if="show" :style="{top: top}" class='message-wrapper'>
+        <div class='img'>
+            <img :src="img">
+        </div>
+        <div class='msg'>
+            {{message}}
+        </div>
+    </div>
+</transition>
